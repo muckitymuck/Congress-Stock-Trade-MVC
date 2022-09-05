@@ -9,6 +9,7 @@
 </head>
 <body>
     <h1>Todos</h1>
+    
     <ul>
     <% todos.forEach( el => { %>
             <li class='todoItem' data-id='<%=el._id%>'>
@@ -23,6 +24,10 @@
     <form action="/todos/createTodo" method='POST'>
         <input type="text" placeholder="Enter Todo Item" name='todoItem'>
         <input type="submit">
+        
+    </form>
+    <form action="/todos/refreshApi">
+        <span class="refresh" name="refresh" method="GET">Refresh Data</span>
     </form>
     <div class="table-wrapper">
         <table class="default">
