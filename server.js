@@ -21,7 +21,7 @@ require('./config/passport')(passport)
 connectDB()
 
 //invokes api call and sends to console
-connectAPI(response.data)
+//connectAPI(response.data)
 
 app.get('/getAPIResponse', (req, res) => {
   connectAPI()
