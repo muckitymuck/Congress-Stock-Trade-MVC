@@ -7,6 +7,7 @@ const MongoStore = require('connect-mongo')(session)
 const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')
+const connectAPI = require('./config/api')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
 
@@ -15,7 +16,11 @@ require('dotenv').config({path: './config/.env'})
 // Passport config
 require('./config/passport')(passport)
 
+//invokes connection to MongoDB and logs to console
 connectDB()
+
+//invokes api call and sends to console
+connectAPI()
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
