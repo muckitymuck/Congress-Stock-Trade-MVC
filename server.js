@@ -10,6 +10,7 @@ const connectDB = require('./config/database')
 const connectAPI = require('./config/api')
 const mainRoutes = require('./routes/main')
 const todoRoutes = require('./routes/todos')
+const { response } = require('express')
 
 require('dotenv').config({path: './config/.env'})
 
@@ -20,7 +21,15 @@ require('./config/passport')(passport)
 connectDB()
 
 //invokes api call and sends to console
-connectAPI()
+connectAPI(response.data)
+
+app.get('/getAPIResponse', (req, res) => {
+  connectAPI()
+  .then(response => {
+    res.json(response)
+  })
+})
+//
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'))

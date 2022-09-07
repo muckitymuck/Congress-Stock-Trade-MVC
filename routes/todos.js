@@ -14,6 +14,6 @@ router.put('/markIncomplete', todosController.markIncomplete)
 
 router.delete('/deleteTodo', todosController.deleteTodo)
 
-//router.get('/apiRefresh', apiController.refreshApi)
+router.get('/apiRefresh', apiController.getAPI)
 
 module.exports = router

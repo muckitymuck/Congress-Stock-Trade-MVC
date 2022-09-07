@@ -1,12 +1,12 @@
+//const connectAPI = require('../config/api')
 const Api = require('../models/Api')
  
  module.exports = {
    getAPI: async (req,res)=>{
-      console.log(req.user)
+
+      console.log(connectAPI())
       try{
-          const todoItems = await Todo.find()
-          const itemsLeft = await Todo.countDocuments({userId:req.user.id,completed: false})
-          res.render('todos.ejs', {todos: todoItems, left: itemsLeft, user: req.user})
+         res.render(connectAPI())
       }catch(err){
           console.log(err)
       }
